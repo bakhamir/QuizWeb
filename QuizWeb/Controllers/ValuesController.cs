@@ -114,7 +114,7 @@ namespace QuizWeb.Controllers
             }
         }
         [HttpGet("/GetQuestions")]
-        public async Task<IEnumerable<PersonScore>> GetQuestions(int amount,string theme)
+        public async Task<IEnumerable<AnswerQuestion>> GetQuestions(int amount,string theme)
         {
             try
             {
@@ -124,7 +124,7 @@ namespace QuizWeb.Controllers
                     DynamicParameters parametrs = new DynamicParameters();
                     parametrs.Add("amount",amount );
                     parametrs.Add("theme",theme);
-                    var res = db.Query<PersonScore>("pQuestion", commandType: System.Data.CommandType.StoredProcedure);
+                    var res = db.Query<AnswerQuestion>("pQuestion", commandType: System.Data.CommandType.StoredProcedure);
                     return res;
                 }
             }
@@ -133,11 +133,5 @@ namespace QuizWeb.Controllers
                 return null;
             }
         }
-
-
-
-
-
-
     }
 }
