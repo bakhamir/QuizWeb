@@ -135,3 +135,109 @@ namespace QuizWeb.Controllers
         }
     }
 }
+//create table Person(
+//id int identity primary key,
+//fio nvarchar(200))
+
+//create table Victorina(
+//id int identity primary key,
+//personid int foreign key references Person,
+//count int)
+
+//create table Question(
+//id int identity primary key,
+//questionText nvarchar(max),
+//theme nvarchar(max)
+//)
+
+//drop table Question
+
+//insert into Question
+//Values
+//('Какой физический процесс связан со знаком - лямбда','Физика')
+
+
+
+//insert into Question
+//Values
+//('Чему равно иррациональное число i?','Математика'),
+//('Чему равно отношение прилежащего угла к гиппотенузе?', 'Математика'),
+//('чему равно число в нулевой степени?', 'Математика')
+//Insert into answer 
+//values
+//(4,'корень из одного',0),(4, 'два делить на 0', 1),(4, '0 в отрицательной степени', 0),(4, 'квадратный корень из минус одного', 1),
+//(5, 'tg', 0),(5, 'ctg', 0),(5, 'sin', 0),(5, 'cos', 1),
+//(6, '-1', 0),(6, '1', 1),(6, '0', 0),(6, '-0', 0)
+
+
+
+//create table Answer(
+//id int identity primary key,
+//questionId int foreign key references Question,
+//answerText nvarchar(max),
+//isCorrect bit)
+
+//Insert into answer 
+//values
+//(3,'Горение',0),(3, 'Плавление', 1),(3, 'Кипение', 0),(3, 'Затвердевание', 0)
+
+//update Question set questionText =  'Какой физический процесс связан со знаком - лямбда' where id = 3
+
+
+
+
+
+
+
+
+
+//create proc pPerson
+//@name nvarchar(max)
+//as
+//insert into Person
+//values (@name)
+
+//alter proc pPerson; 2
+//@id int ,
+//@score int output
+//as
+//set
+//@score = (select count from person as p join Victorina as v
+//on @id = v.personid)
+
+//declare @points int 
+//exec pPerson; 2 1, @points output
+//select @points
+
+
+//create proc pVictorina
+//@personid int,
+//@count int 
+//as
+//insert into Victorina
+//values(@personid, @count)
+
+//insert into person ()
+
+//select* from person
+
+//create proc pPerson; 3
+//as
+//select* from Person
+
+//create proc pPerson; 4
+//as
+//select fio, count from Person as p join Victorina as v on v.personid = p.id
+
+//alter proc pQuestion
+//@amount int,
+//@theme nvarchar(max)
+//as
+//select top(@amount * 4) questionText, answerText, isCorrect from Question as q join Answer as a on a.questionId = q.id where theme like @theme
+
+
+//pQuestion 3, 'Физика'
+
+//select top(10) *questionText from Question as q
+//                             join Answer as a on a.questionId = q.id where
+
